@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/facelet/layout.xhtml">
+	<ui:define name="header">
+	<h:form>
+		<p:menubar>
+			<p:menuitem value="#{loginCtr.getActualUser().login}" icon="ui-icon-person"/>
+        	<f:facet name="options">
+            	<p:commandButton value="Deconnecter" icon="ui-icon-power"  >
+             		 <p:confirm header="Confirmation" message="Etes-vous sûr?" icon="ui-icon-alert" /> 
+            	</p:commandButton>
+            	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"  width="300" >
+        			<p:commandButton value="Yes" outcome="deconnect" action="#{loginCtr.deconnect}" styleClass="ui-confirmdialog-yes" style="width:130px;" icon="ui-icon-check" />
+        			<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" style="width:130px;" icon="ui-icon-close" />
+        		</p:confirmDialog>
+        	</f:facet>
+		</p:menubar>
+		<ui:include src="/pages/usertabview.xhtml"  />
+		<ui:include src="/pages/userforms.xhtml" />
+	</h:form>
+	</ui:define>
+	<ui:define name="contentLeft">
+	<h:form class="form">
+		<h:panelGrid columns="1">
+			<p:commandButton id="gdm" value="Gestion des membres" type="button" update="membertab" onclick="PF('MEMBER').show();" icon="ui-icon-person" style="width:300px;"/>	
+    		<p:commandButton id="gdl" value="Gestion des livres" type="button" update="booktab" onclick="PF('BOOK').show();" icon="ui-icon-bookmark" style="width:300px;"/>	
+    		<p:commandButton id="gde" value="Gestion d’emprunt" type="button" update="prettab" onclick="PF('PRET').show();" icon="ui-icon-clipboard" style="width:300px;"/>	
+    	</h:panelGrid>
+    	<ui:include src="/pages/membertabview.xhtml" />
+     	<ui:include src="/pages/memberforms.xhtml"  /> 
+     	<ui:include src="/pages/booktabview.xhtml" />
+     	<ui:include src="/pages/bookforms.xhtml"  />
+     	<ui:include src="/pages/prettabview.xhtml" />
+     	<ui:include src="/pages/pretforms.xhtml"  />
+	</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+	<f:event type="preRenderView" listener="#{userCtr.listUsers}"/>
+	
+		<p:growl id="msg" showDetail="true" sticky="true" />
+		<p:dialog header="Utilisateur"  showEffect="fade" hideEffect="fade" widgetVar="USER" modal="true" width="98%">
+		<p:outputPanel autoUpdate="false">
+    		<p:dataTable id="usertab" var="user" value="#{userCtr.users}" paginator="true" rows="15" paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                 rowsPerPageTemplate="10,15,20,50" selectionMode="multiple" selection="#{userCtr.usersSelection}" rowKey="#{user.login}">
+        		<p:column headerText="Nom d'utilisateur" sortBy="#{user.login}" filterBy="#{user.login}">
+            		<h:outputText value="#{user.login}" />
+        		</p:column>
+        		<p:column headerText="Mot de pass" sortBy="#{user.password}" filterBy="#{user.password}">
+            		<h:outputText value="#{user.password}" />
+       		 	</p:column>
+        		<p:column headerText="Type" sortBy="#{user.type}" filterBy="#{user.type}">
+            		<h:outputText value="#{user.type}" />
+        		</p:column>
+        		<p:column headerText="Durée Limite" sortBy="#{user.dureelim}" filterBy="#{user.dureelim}">
+            		<h:outputText value="#{user.dureelim}" />
+        		</p:column>
+        		<p:column headerText="Nombre Limite" sortBy="#{user.nbrlim}" filterBy="#{user.nbrlim}">
+            		<h:outputText value="#{user.nbrlim}" />
+        		</p:column>
+        		<f:facet name="footer">
+        			<p:commandButton process="usertab" update="usertab" value="Ajouter" action="#{userCtr.oneUserSelection}" onclick="PF('USERFORM').show();" style="width:200px;" icon="ui-icon-disk" />
+            		<p:commandButton process="usertab" update="usertab" value="Modifier" action="#{userCtr.oneUserSelection}" onclick="PF('MODFORM').show();"  style="width:200px;" icon="ui-icon-document" />
+            		<p:commandButton process="usertab" update="usertab" value="Supprimer" action="#{userCtr.deleteUsers}" style="width:200px;" icon="ui-icon-trash" />
+        		</f:facet>
+    		</p:dataTable>
+    		</p:outputPanel>
+		</p:dialog>
+    	
+</ui:composition>

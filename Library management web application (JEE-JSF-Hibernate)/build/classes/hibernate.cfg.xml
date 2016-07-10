@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <property name="hibernate.current_session_context_class">thread</property>
+  <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+  <property name="hibernate.connection.password">ouss</property>
+  <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+  <property name="hibernate.connection.username">ouss</property>
+  <property name="hibernate.default_schema">OUSS</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+  <property name="hibernate.show_sql">true</property>
+  <mapping class="com.project.model.Utilisateur"/>
+  <mapping class="com.project.model.Livre"/>
+  <mapping class="com.project.model.Membre"/>
+  <mapping class="com.project.model.Pret"/>
+  <mapping class="com.project.model.PretId"/>
+  <mapping class="com.project.dao.UtilisateurDao"/>
+  <mapping class="com.project.dao.MembreDao"/>
+  <mapping class="com.project.dao.PretDao"/>
+  <mapping class="com.project.dao.LivreDao"/>
+ </session-factory>
+</hibernate-configuration>

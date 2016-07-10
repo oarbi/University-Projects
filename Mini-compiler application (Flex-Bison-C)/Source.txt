@@ -1,0 +1,13 @@
+programexemple ; (* programme factoriel *)
+var x,y :LongInt; (* programme factoriel *)
+func fact (n : LongInt) : LongInt ;
+{ (* programme factoriel *)
+if a=0 then {i}
+{fact := n*fact(n-1) }
+} ;
+{
+read(x) ;
+y :=x**x ;
+write(fact(x)) ;
+write(y)
+}.

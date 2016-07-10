@@ -1,0 +1,27 @@
+body
+{
+	
+	background: url("#{resource['images/library.jpg']}") no-repeat center center fixed ;
+	background-size:cover;
+}
+.form
+{
+	margin-left:25%;
+	margin-top:7%;
+}
+#mainform
+{
+	margin-left:23%;
+	margin-top:13%;
+}
+#header
+{
+	background-image: url("#{resource['images/tree-library.png']}");
+	background-repeat: no-repeat;
+	background-size: 120px 115px;
+	background-color: rgba(192,192,192,0.7);
+}
+.red
+{
+	background-color: yellow;
+}

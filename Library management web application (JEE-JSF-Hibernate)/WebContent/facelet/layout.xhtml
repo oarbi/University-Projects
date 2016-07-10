@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta name="description" content="Projet d'etude JEE: Gestionnaire de bibliothéque" />
+	<meta name="author" content="Arbi Oussama" />
+	<h:outputStylesheet name="css/Style.css" /> 
+</h:head>
+<h:body>
+	<div id="main">
+		<div id="header">
+			<h1 style="padding-left: 20%;"> <br /> Gestionnaire De Bibliothéque </h1>
+			<h4 style="padding-left:90%;">  Arbi Oussama <br /> </h4>
+			<ui:insert name="header" />
+		</div>
+		<div id="content">
+			<div id="content-left">
+				<ui:insert name="contentLeft" />
+			</div>
+			<div id="content-center">
+				<ui:insert name="contentCenter" />
+			</div>
+			<div id="content-right">
+				<ui:insert name="contentRight" />
+			</div>
+		</div>
+		<div id="footer">
+			<ui:insert name="footer" />
+		</div> 
+	</div>
+</h:body> 
+</html>
